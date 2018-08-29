@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- is used to override moveit standard rviz start and replace it with own-->
+    <arg name="use_rviz" default="false"/>
+    <arg name="rviz_config" default="manipulation_arena.rviz" />
+    <!-- Launches jaco_manipulation  -->
+    <include file="$(find jaco_manipulation)/launch/jaco_manipulation_arena.launch">
+        <arg name="use_rviz" value="$(arg use_rviz)"/>
+        <arg name="rviz_config" default="$(arg rviz_config)"/>
+    </include>
+
+    <!-- Launches reground_api  -->
+    <include file="$(find reground_api)/launch/reground_api.launch"/>
+</launch>
